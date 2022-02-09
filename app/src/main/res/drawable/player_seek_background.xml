@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- !! 공부 !! -->
+<!-- PlayerView에서 Seekbar를 커스텀 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- SeekBar의 배경 -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="@color/seekbar_background"/>
+            <corners android:radius="2dp"/>
+        </shape>
+    </item>
+
+    <!-- Progress가 진행될 때 표현하는 item -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <solid android:color="@color/purple_200"/>
+                <corners android:radius="2dp"/>
+                <stroke android:width="2dp" android:color="@color/purple_200"/>
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>
+
