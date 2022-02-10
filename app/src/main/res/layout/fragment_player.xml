@@ -2,12 +2,29 @@
 
 <!--
 플레이 리스트 화면과 플레이 화면을 같은 레이아웃에 구현할 예정
+Constraint Layout에서 레퍼런스 아이디 들로 묶여있는 그룹을 의미
+-> 뷰들을 그룹으로 묶어서 보였다 숨겼다 가능하도록 해준다.
 -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/playerViewGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="trackTextView, musicianTextView, coverImageCardView,
+bottomBackgroundView, playerSeekBar,playTimeTextView , totalTimeTextView"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/playListViewGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="titleTextView, playlistRecyclerView , playlistSeekBar" />
 
     <View
         android:id="@+id/topBackgroundView"
@@ -73,6 +90,7 @@
         tools:text="가수 이름" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/coverImageCardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="36dp"
