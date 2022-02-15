@@ -2,7 +2,7 @@ package com.example.part04_ch02_musicstreamingapp
 
 // 뷰에 매칭시켜줄 데이터 모델
 data class MusicModel(
-    val id: Long,
+    val id: Long,    // 인덱스를 id로 사용
     val track: String,
     val streamUrl: String,
     val musician: String,
