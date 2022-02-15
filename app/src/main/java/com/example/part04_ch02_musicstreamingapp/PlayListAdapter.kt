@@ -56,6 +56,7 @@ class PlayListAdapter(private val callback: (MusicModel) -> Unit): ListAdapter<M
 
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<MusicModel>() {
+            // id값을 통해 이전 아이템과 새로운 아이템이 같은 아이템인지 비교
             override fun areItemsTheSame(oldItem: MusicModel, newItem: MusicModel): Boolean {
                 // id 값만 비교
                 return oldItem.id == newItem.id

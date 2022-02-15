@@ -16,6 +16,10 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+/*
+diffUtil?
+copy 사용 이유
+ */
 
 /*
 Exoplayer 사용하기

@@ -3,15 +3,17 @@ package com.example.part04_ch02_musicstreamingapp
 // 플레이어를 사용할 때 필요한 각종 정보들을 따로 담아두는 데이터 모델
 // 우선 초기화 전이기 때문에 모두 가상의 값으로 일단 설정해준다.
 data class PlayerModel (
-    private val playMusicList: List<MusicModel> = emptyList(),    // 음악을 담아두는 리스트 , 밖에서 참조 불가
+    private val playMusicList: List<MusicModel> = emptyList(),    // Player에서 사용할 리스트 , 밖에서 참조 불가
     var currentPosition: Int = -1,    // 음악을 선택할 때 사용할 position , 초기화 전이기 때문에 -1로 설정
     var isWatchingPlayListView: Boolean = true    // 플레이리스트를 보고 있는지 , 플레이어를 보고 있는지 확인용
 ) {
 
     // MusicModel안에는 현재 재생중인지 판단하는 isPlaying값이 있는데 PlayModel의 currentPosition을 통해 해당 음악이
     // 재생중인지 업데이트하는 함수
+    // 플레이어에서 곡 현재 재생중인 곡의 상태를 변경시킨뒤 MusicModel들의 리스트를 리사이클러뷰 어댑터에 반환하도록 해준다.
     fun getAdapterModels(): List<MusicModel> {
         // 현재 index와 currentPosition이 일치하는 경우 재생중이라고 판단.
+        // 가져온 musicModel과 인덱스를 적용하여 반환
         return playMusicList.mapIndexed { index, musicModel ->
             // copy : 원하는 값만 수정한 뒤 똑같은 새로운 모델로 만들어준다.
             val newItem = musicModel.copy(
